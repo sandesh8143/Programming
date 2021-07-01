@@ -1,17 +1,26 @@
 #include<bits/stdc++.h>
 
-#include "codes/factorial.cpp"
-#include "codes/logger.cpp"
-#include "codes/greater.cpp"
+#include "codes/stack.cpp"
 
 using namespace std;
 int main(){
-    int n;
+    int temp;
+    cin>>temp;
+    Node* top = (Node*)malloc(sizeof(Node));
+    top -> link = NULL;
+    top ->data = temp;
+
+    int n,k;
     cin>>n;
-    cout<<factorial(n)<<endl;
-    int k,l;
     cin>>k;
-    cin>>l;
-    int g = greaterthan(k,l);
-    cout<<g;
-}
+
+    for(int i=0;i<n;i++){
+        cin>>temp;
+        top = push(temp,top);
+    }
+
+    for(int i=0;i<k;i++){
+        top = pop(top);
+    }
+
+}    
